@@ -1,0 +1,21 @@
+CREATE TABLE autori (
+	id INT PRIMARY KEY AUTO_INCREMENT
+    ,ime CHARACTER(10) NOT NULL
+    ,prezime CHARACTER(15) NOT NULL
+);
+
+CREATE TABLE knjige (
+	id INT PRIMARY KEY AUTO_INCREMENT
+    ,naslov CHARACTER(10) NOT NULL
+    ,godina YEAR NOT NULL
+    ,autor_id INT
+    ,FOREIGN KEY (autor_id) REFERENCES autori(id)
+);
+
+INSERT INTO autori (ime,prezime) VALUES ('Mesa','Selimovic');
+INSERT INTO autori (ime,prezime) VALUES ('Ivo',' Andric');
+INSERT INTO autori (ime) VALUES ('Homer');
+
+INSERT INTO knjige (naslov, godina, autor_id) VALUES ('Dervis i smrt', 1966, 4);
+INSERT INTO knjige (naslov, godina, autor_id) VALUES ('Tvrdjava', 1970, 5);
+INSERT INTO knjige (naslov, godina, autor_id) VALUES ('Na Drini cuprija', 1945, 6);
